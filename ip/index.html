@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title> Neighbourhood Map</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="article">
+        <div class="row heading1">
+            <div class="header col-xs-12">
+                <h1>PLASOVISIT</h1>
+                <p>MUMBAI</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="error">
+                    <h4>Search:<span data-bind="text: errorDisplay"></span></h4>
+                </div>
+                <div class="input-group">
+                    <input id="filterInputText" type="text" class="form-control" placeholder="filter by name..." data-bind="value: filterText, valueUpdate: 'afterkeydown', event: {keyup: applyFilter}">
+                </div>
+                <br>
+                <br>
+                <ul class="list-group" data-bind="foreach: mapList">
+                    <a class="list-group-item" data-bind="css: {active: selected}, text: name, visible: show, click: $parent.setSelected"></a>
+                </ul>
+            </div>
+            <div class="col-sm-8">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <script src='js/jquery.min.js'></script>
+    <script src="js/Knockout.js"></script>
+    <script src="js/mappinginit.js"></script>
+    <script src="js/mainfile.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6kyiS6P5bCpYpqeQYaV5EC3kYy3FK4C8&callback=initialMap" onerror="googleError()" async defer></script>
+    <!--The defer attribute is a boolean attribute-->
+</body>
+
+</html>
